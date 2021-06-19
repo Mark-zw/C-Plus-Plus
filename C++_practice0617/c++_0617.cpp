@@ -1,27 +1,234 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-
 #include<iostream>
 using namespace std;
-
-//半缺省参数 --- 缺省部分参数
-void Func2(int a = 10 , int b = 20, int c = 30)
+void Swap1(int& left, int& right)
 {
-	cout << "a = " << a << endl;
-	cout << "b = " << b << endl;
-	cout << "c = " << c << endl;
+	int temp = left;
+	left = right;
+	right = temp;
+}
+void Swap(int* pa, int* pb)
+{
+	int tmp = *pa;
+	*pa = *pb;
+	*pb = tmp;
 }
 int main()
 {
-	//Func1();所有参数不传 程序错误
-	//cout << "-------------" << endl;
-	//Func2(1);
-	cout << "-------------" << endl;
-	Func2(1, 2);
-	cout << "-------------" << endl;
-	Func2(, , 3);
-	cout << "-------------" << endl;
+	int a = 1;
+	int b = 2;
+	Swap(&a, &b);
+	cout << a << " " << b << endl;
 	return 0;
 }
+
+//int main()
+//{
+//	int i = 1;
+//	double d = i;//隐式类型转换
+//	double& ri = i;//可以这样取别名吗？
+//	const double& rri = i;//这样呢？
+//	return 0;
+//}
+//
+//const int a = 10;
+//int& b = a;//这种是不行的，b是a的别名
+// 
+//const int x = 10;
+//int y = x;//这种是可以的，y和x没什么关系
+//
+//const int a = 10;
+//int* p = &a;//这种不行，权限的放大
+//const int* pa = &a;//需要这种形式
+//
+//int c = 1;
+//const int* pc = &c;//可以，属于权限的缩小
+
+//int main() 
+//{
+//	int a = 10;
+//	int& ra = a;
+//	ra = 20;
+//	int* pa = &a;
+//	*pa = 20;
+//	return 0;
+//}
+
+//int main() 
+//{
+//	int a = 10; int& ra = a;
+//	cout << "&a = " << &a << endl; 
+//	cout << "&ra = " << &ra << endl;
+//	return 0;
+//}
+
+
+//#include <time.h>
+//struct A 
+//{ 
+//	int a[10000]; 
+//};
+//A a;
+//
+//A TestFunc1() 
+//{
+//	return a;
+//}
+//A& TestFunc2() 
+//{
+//	return a;
+//}
+//void TestRefAndValue() 
+//{
+//	A a;
+//	//以值作为函数的返回值类型
+//	size_t begin1 = clock();
+//	for (size_t i = 0; i < 1000000; ++i)
+//		TestFunc1();
+//	size_t end1 = clock();
+//
+//	//以引用作为函数的返回值类型
+//	size_t begin2 = clock();
+//	for (size_t i = 0; i < 1000000; ++i)
+//		TestFunc2();
+//	size_t end2 = clock();
+//
+//	//分别计算两个函数运行结束后的时间
+//	cout << "TestFunc1()-time : " << end1 - begin1 << endl;
+//	cout << "TestFunc2()-time: " << end2 - begin2 << endl;
+//}
+//int main()
+//{
+//	TestRefAndValue();
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+//int& Add(int a, int b) 
+//{
+//	int c = a + b; 
+//	return c;
+//}
+//int main()
+//{
+//	int& ret = Add(1,2);
+//	Add(3,4);
+//	cout << "Add(1，2) is : " << ret << endl;
+//	return 0;
+//}
+
+
+//void Swap(int& left, int& right) 
+//{
+//	int temp = left; 
+//	left = right; 
+//	right = temp;
+//}
+//int& Count() 
+//{
+//	static int n = 0;
+//	n++;
+//	// ...
+//	return n;
+//}
+
+
+//void TestConstRef() 
+//{
+//	const int a = 10;
+//	//int& ra = a;//该语句编译时会出错，a为常量
+//	const int& ra = a;
+//	//int& b = 10;//该语句编译时会出错，b为常量
+//	const int& b = 10;
+//	double d = 12.34;
+//	//int& rd = d;l/该语句编译时会出错，类型不同
+//	const int& rd = d;
+//}
+//
+//#include<iostream>
+//using namespace std;
+//void TestRef()
+//{
+//	int a = 10;
+//	int b = 20;
+//	//int& ra;//该条语句编译时会报错
+//	int& ra = a;//定义引用变量的时候就需要给其赋初始值
+//	int& rra = a;//一个变量可以有多个引用
+//	ra = b;
+//
+//	cout << a << endl;
+//	cout << ra << endl;
+//	cout << rra << endl;
+//}
+//int main()
+//{
+//	TestRef();
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//double Add(double x, double y)
+//{
+//	return x + y;
+//}
+//long Add(long x, long y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	cout << Add(1, 2) << endl;
+//	cout << Add(1.1, 2.2) << endl;
+//	cout << Add(10L, 20L) << endl;
+//	return 0;
+//}
+//
+//int Add(short x, short y)
+//{
+//	return x + y;
+//}
+//short Add(short x, short y)
+//{
+//	return x + y;
+//}
+//
+//void TestFunc(int a = 10) 
+//{
+//	cout << "void TestFunc (int) " << endl;
+//}
+//void TestFunc(int a) 
+//{
+//	cout << "void TestFunc(int) " << endl;
+//}
+
+//#include<iostream>
+//using namespace std;
+//
+////半缺省参数 --- 缺省部分参数
+//void Func2(int a = 10 , int b = 20, int c = 30)
+//{
+//	cout << "a = " << a << endl;
+//	cout << "b = " << b << endl;
+//	cout << "c = " << c << endl;
+//}
+//int main()
+//{
+//	//Func1();所有参数不传 程序错误
+//	//cout << "-------------" << endl;
+//	//Func2(1);
+//	cout << "-------------" << endl;
+//	Func2(1, 2);
+//	cout << "-------------" << endl;
+//	Func2(, , 3);
+//	cout << "-------------" << endl;
+//	return 0;
+//}
 
 //#include<iostream>
 //using namespace std;
