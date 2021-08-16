@@ -39,15 +39,28 @@
 //	return 0;
 //}
 
+//#include<iostream>
+//using namespace std;
+//void  fun(int a, double d)
+//{}
+//void  fun(double d, int a)
+//{}
+//void fun(char a,int b)
+//{}
+//int main()
+//{
+//	return 0;
+//}
+
 #include<iostream>
 using namespace std;
-void  fun(int a, double d)
-{}
-void  fun(double d, int a)
-{}
-void fun(char a,int b)
-{}
 int main()
 {
+	int a = 1;
+	int& ra = a;
+	int& c = ra;
+	int& b = a;
+	cout << "a = " << a << endl;
+	cout << "ra = " << ra << endl;
 	return 0;
 }
