@@ -52,15 +52,37 @@
 //	return 0;
 //}
 
+//#include<iostream>
+//using namespace std;
+//int main()
+//{
+//	int a = 1;
+//	int& ra = a;
+//	int& c = ra;
+//	int& b = a;
+//	cout << "a = " << a << endl;
+//	cout << "ra = " << ra << endl;
+//	return 0;
+//}
+
 #include<iostream>
 using namespace std;
+inline void Swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
 int main()
 {
-	int a = 1;
-	int& ra = a;
-	int& c = ra;
+	int a = 10;
+	int c = 20;
 	int& b = a;
+	int* p = &a;
+	Swap(a, c);
 	cout << "a = " << a << endl;
-	cout << "ra = " << ra << endl;
+	cout << "c = " << c << endl;
 	return 0;
 }
+
+
