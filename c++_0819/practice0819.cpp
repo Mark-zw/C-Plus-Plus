@@ -1,40 +1,153 @@
 #define _CRT_SECURE_NO_WARNINGS 1 
+//#include<iostream>
+//using namespace std;
+//class Stack {
+//public:
+//	//成员函数
+//	void Push(int x);
+//	void Pop();
+//	bool Empty();
+//private:
+//	//成员变量
+//	int* _array;
+//	int _size;
+//	int _capacity;
+//};
+//int main()
+//{
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+////1.下面程序能编译通过吗？
+////2.下面程序会崩溃吗？在哪里崩溃？
+//class A
+//{
+//public:
+//	void PrintA()
+//	{
+//		cout << _a << endl;
+//	}
+//	void Show()
+//	{
+//		cout << "Show()" << endl;
+//	}
+//private:
+//	int _a;
+//};
+//int main()
+//{
+//	A* p = nullptr;
+//	//p->PrintA();
+//	p->Show();
+//	return 0;
+//}
 #include<iostream>
 using namespace std;
-//类里面可以定义：1、成员变量 2、成员方法（函数）
-class Person
-{
-	//成员方法
-	void showinfo()
-	{
-		cout << _name << "_" << _age<<"_" << endl;
-	}
-
-	//成员变量
-	char _name[10];
-	int _age;
-	char tele[];
-	//...
-};
-class className 
-{
-	//类体:由成员函数和成员变量组成
-}; // 一定要注意后面的分号
-
-class Person 
+class Date
 {
 public:
-	void PrintPersonInfo();
+	//void Display(Date* this)
+	void Display()
+	{
+		cout << _year << "-" << _month << "-" << _day << endl;
+		//cout << this->_year << "-" << this->_month << "-" <<this-> _day << endl;
+	}
+	//void SetDate(Date* this,int year,int month,int day)
+	void SetDate(int year,int month,int day)
+	{
+		_year = year;//this->_year = year;
+		_month = month;//this->_month = year;
+		_day = day;//this->_day = year;
+	}
 private:
-	char _name[20]; 
-	char _gender[3]; 
-	int _age;
+	int _year;//年
+	int _month;//月
+	int _day;//日
 };
-//这里需要指定PrintPersonInfo是属于Person这个类域
-void Person::PrintPersonInfo()
+int main()
 {
-	cout << _name << " "_gender << " " << _age << endl;
+	Date d1, d2;
+	d1.SetDate(2021, 8, 19);//d1.SetDate(&d1,2021,8,19)
+	d2.SetDate(2021, 8, 20);//d2.SetDate(&d2,2021,8,19)
+	d1.Display();//d1.Display(&d1)
+	d2.Display();//d2.Display(&d2)
+	return 0;
 }
+
+//class A
+//{
+//public:
+//	void PrintA()
+//	{
+//		cout << _a << endl;
+//	}
+//private:
+//	int _a;
+//};
+//
+////类中既有成员变量，又有成员函数
+//class A1 {
+//public:
+//	void f1() {}
+//private:
+//	int _a;
+//};
+////类中仅有成员函数
+//class A2 {
+//public:
+//	void f2() {}
+//};
+////类中什么都没有---空类
+//class A3
+//{};
+//
+//int main()
+//{
+//	cout << sizeof(A1) << endl;
+//	cout << sizeof(A2) << endl;
+//	cout << sizeof(A3) << endl;
+//
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+////类里面可以定义：1、成员变量 2、成员方法（函数）
+//class Person
+//{
+//	//成员方法
+//	void showinfo()
+//	{
+//		cout << _name << "_" << _age<<"_" << endl;
+//	}
+//
+//	//成员变量
+//	char _name[10];
+//	int _age;
+//	char tele[];
+//	//...
+//};
+//class className 
+//{
+//	//类体:由成员函数和成员变量组成
+//}; // 一定要注意后面的分号
+//
+//class Person 
+//{
+//public:
+//	void PrintPersonInfo();
+//private:
+//	char _name[20]; 
+//	char _gender[3]; 
+//	int _age;
+//};
+////这里需要指定PrintPersonInfo是属于Person这个类域
+//void Person::PrintPersonInfo()
+//{
+//	cout << _name << " "_gender << " " << _age << endl;
+//}
 
 
 //void fun(int n)
