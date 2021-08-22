@@ -43,24 +43,42 @@
 //	p->Show();
 //	return 0;
 //}
+//class Time {
+//public:
+//	Time() {
+//		_hour = 0;
+//		_minute = 0;
+//		_second = 0;
+//		cout << "Time()" << endl;
+//	}
+//private:
+//	int _hour;
+//	int _minute;
+//	int _second;
+//};
+
 #include<iostream>
 using namespace std;
 class Date
 {
 public:
-	//void Display(Date* this)
+	//构造函数
+	Date(int year = 0, int month = 1, int day = 1) {
+		_year = year;
+		_month = month;
+		_day = day;
+		cout << "自动调用构造函数" << endl;
+	}
+	//析构函数
+	~Date() {
+		cout << "自动调用析构函数~" << endl;
+	}
 	void Display()
 	{
 		cout << _year << "-" << _month << "-" << _day << endl;
 		//cout << this->_year << "-" << this->_month << "-" <<this-> _day << endl;
 	}
-	//void SetDate(Date* this,int year,int month,int day)
-	void SetDate(int year,int month,int day)
-	{
-		_year = year;//this->_year = year;
-		_month = month;//this->_month = year;
-		_day = day;//this->_day = year;
-	}
+
 private:
 	int _year;//年
 	int _month;//月
@@ -68,11 +86,10 @@ private:
 };
 int main()
 {
-	Date d1, d2;
-	d1.SetDate(2021, 8, 19);//d1.SetDate(&d1,2021,8,19)
-	d2.SetDate(2021, 8, 20);//d2.SetDate(&d2,2021,8,19)
-	d1.Display();//d1.Display(&d1)
-	d2.Display();//d2.Display(&d2)
+	Date d1(2021, 10, 1);
+	Date d2;
+	d1.Display();
+	d2.Display();
 	return 0;
 }
 
