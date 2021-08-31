@@ -8,7 +8,6 @@ public:
 	{
 		cout << _year << "-" << _month << "-" << _day << endl;
 	}
-
 	//void Init(int year, int month, int day)
 	//{
 	//	_year = year;
